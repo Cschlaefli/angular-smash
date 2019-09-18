@@ -1,11 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <nav>
-    <!---<a routerLink="/login">Login</a>
-    <a routerLink="/home">Home</a>--->
+  <nav class="navbar navbar-expand navbar-dark bg-dark ml-auto">
+    <a class="navbar-brand nav-link" routerLink="/home">Ultimate Frame Data</a>
+    <div class="nav navbar-nav ml-auto">
+      <a class="nav-item nav-link " routerLink="/login" *ngIf="!currentUser">Login</a>
+      <a class="nav-item nav-link " (click)="logout()" *ngIf="currentUser">Logout</a>
+    </div>
   </nav>
 </div>
 

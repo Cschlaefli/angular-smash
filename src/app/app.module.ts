@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { APP_BASE_HREF } from '@angular/common';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,11 +16,14 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [ {provide : APP_BASE_HREF, useValue : 'http://localhost:5001'}],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

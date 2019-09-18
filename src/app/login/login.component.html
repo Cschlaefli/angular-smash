@@ -1,6 +1,4 @@
-<h2>Login</h2>
-<p>FUCKING WHAT</p>
-<!---<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form class="col-sm-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="username">Username</label>
         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
@@ -22,4 +20,7 @@
         </button>
         <a routerLink="/register" class="btn btn-link">Register</a>
     </div>
-</form>--->
+    <p class="italics">
+        This is really only if you want to contribute data, contact me at cade.schlafli@gmail(dot)com if you're interested.
+    </p>
+</form>
