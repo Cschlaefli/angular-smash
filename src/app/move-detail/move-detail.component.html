@@ -1,6 +1,6 @@
       
 
-<div class="card text-white mx-1 bg-primary" style="width: 14rem;">
+<div class="card text-white mx-1 bg-primary" style="width: 16rem;">
     <div class="card-header">{{move.name}}</div>
     <div class="card-body bg-dark">
         <div *ngIf="move.advantage">
@@ -18,6 +18,26 @@
         <div *ngIf="move.notes">
             <label>Notes : </label>
             {{move.notes}}
+        </div>
+        <div *ngIf="move.shieldLag">
+            <label>Shield Lag : </label>
+            {{move.shieldLag}}
+        </div>
+        <div *ngIf="move.shieldStun">
+            <label>Shield Stun : </label>
+            {{move.shieldStun}}
+        </div>
+        <div *ngIf="move.startup">
+            <label>Startup : </label>
+            {{move.Startup}}
+        </div>
+        <div *ngIf="move.totalFrames">
+            <label>Total Frames : </label>
+            {{move.totalFrames}}
+        </div>
+        <div *ngIf="move.whichHitbox">
+            <label>Hitboxes: </label>
+            {{move.whichHitbox}}
         </div>
     </div>
 </div>

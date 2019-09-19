@@ -9,7 +9,7 @@ import { Move } from '../_models';
 export class MoveDetailComponent implements OnInit {
 
   @Input() move : Move;
-  constructor() { }
+  constructor(){}
 
   ngOnInit() {
   }
