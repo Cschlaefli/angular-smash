@@ -1,0 +1,31 @@
+<h1 class="text-center">
+    Characters
+</h1> <div class="row">
+<div class="col-sm-8"></div>
+<div class="col">
+    <div ngbDropdown class="row">
+        <button class="btn btn-primary mr-4" ngbDropdownToggle>{{selectedProperty | characterProperties}}</button>
+        <div ngbDropdownMenu>
+            <button *ngFor="let item of prettyNames | keyvalue" ngbDropdownItem (click)="selectedProperty=item.key">{{item.value}}</button>
+        </div>
+    <button class="btn-primary p-1" (click)="onSort(selectedProperty)">Sort</button>
+    </div>
+    <label class="row" ngbButtonLabel>
+        <input type="checkbox" ngbButton [(ngModel)]="descending"> Descending
+    </label>
+</div>
+</div>
+
+
+<div class="row container fluid">
+    <div class="col">
+        <!--<app-character-detail [character]="character"></app-character-detail>-->
+        <app-character-detail [character]="selectedCharacter"></app-character-detail>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-3">
+        <div (click)="onSelect(character)" class="row p-2 h3 mb-2 border border-primary" *ngFor="let character of characters">
+            {{character.name}}
+        </div>
+    </div>
+</div>
