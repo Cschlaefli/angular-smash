@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
+import { MoveListComponent } from './move-list/move-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
     HomeComponent,
     CharacterListComponent,
     CharacterDetailComponent,
-    CharacterProperties
+    CharacterProperties,
+    MoveListComponent
   ],
   imports: [
     NgbModule,

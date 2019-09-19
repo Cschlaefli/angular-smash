@@ -1,19 +1,25 @@
 <h1 class="text-center">
     Characters
-</h1> <div class="row">
-<div class="col-sm-8"></div>
-<div class="col">
-    <div ngbDropdown class="row">
-        <button class="btn btn-primary mr-4" ngbDropdownToggle>{{selectedProperty | characterProperties}}</button>
-        <div ngbDropdownMenu>
-            <button *ngFor="let item of prettyNames | keyvalue" ngbDropdownItem (click)="selectedProperty=item.key">{{item.value}}</button>
+</h1>
+<div class="row">
+    <div class="col-sm-8"></div>
+    <div class="col">
+        <div ngbDropdown class="row justify-content-center">
+            <label class="text-center mx-auto">Sort by : </label>
+            <button class="btn btn-primary mx-auto" ngbDropdownToggle>{{selectedProperty | characterProperties}}</button>
+            <div ngbDropdownMenu>
+                <button *ngFor="let item of prettyNames | keyvalue" ngbDropdownItem (click)="selectedProperty=item.key">{{item.value}}</button>
+            </div>
+            <button class="btn btn-info mx-auto" *ngIf="descending" (click)="descending = !descending"> Descending
+            </button>
+            <button class="btn btn-info mx-auto" *ngIf="!descending" (click)="descending = !descending"> Ascending
+            </button>
         </div>
-    <button class="btn-primary p-1" (click)="onSort(selectedProperty)">Sort</button>
+        <div class="row m-1">
+            <button class="col btn btn-primary" (click)="onSort(selectedProperty)">Sort</button>
+        </div>
     </div>
-    <label class="row" ngbButtonLabel>
-        <input type="checkbox" ngbButton [(ngModel)]="descending"> Descending
-    </label>
-</div>
+    <div class="col-sm-1"></div>
 </div>
 
 

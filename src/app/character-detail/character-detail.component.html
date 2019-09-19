@@ -3,23 +3,29 @@
                 <ngb-panel  id=character.name>
                   <ng-template ngbPanelHeader>
                     <div class="d-flex align-items-center justify-content-between">
-                      <button ngbPanelToggle class="btn btn-link p-0">{{character.name}}</button>
+                      <button ngbPanelToggle class="btn btn-info col text-justify">{{character.name}}</button>
                       <div>
-                        <button class="close" (click)="character = null">X</button>
+                        <button class="close ml-5" (click)="character = null">X</button>
                       </div>
                     </div>
                   </ng-template>
                   <ng-template ngbPanelContent>
-                  <div class="row">
-                      <div *ngFor="let item of character | keyvalue">
-                          <div class="col-auto" *ngIf="item.key | characterProperties">
-                            <div *ngIf="item.key != 'name'">
-                              <label class="text-justify">{{item.key | characterProperties}} : </label>
-                              {{item.value}}
+                  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+                    [attr.aria-expanded]="!isCollapsed" aria-controls="statsCollapse">
+                    Stats
+                  </button>
+                  <div id="stats" [ngbCollapse]="isCollapsed">
+                    <div class="col">
+                        <div *ngFor="let item of character | keyvalue">
+                            <div class="row" *ngIf="item.key | characterProperties">
+                              <div *ngIf="item.key != 'name'">
+                                <label class="text-justify">{{item.key | characterProperties}} : </label>
+                                {{item.value}}
+                              </div>
+                        </div>
                             </div>
-                          </div>
-                      </div>
-                    <div>
+                      <div>
+                    </div>
                         <!--moves-->
                     </div>
                   </div>     
