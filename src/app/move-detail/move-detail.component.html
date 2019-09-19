@@ -1,0 +1,22 @@
+
+<div class="card text-white mx-1 bg-primary" style="width: 14rem;">
+    <div class="card-header">{{move.name}}</div>
+    <div class="card-body bg-dark">
+        <div *ngIf="move.advantage">
+            <label>Advantage : </label>
+            {{move.advatage}}
+        </div>
+        <div *ngIf="move.baseDamage">
+            <label>Base damage: </label>
+            {{move.baseDamage}}
+        </div>
+        <div *ngIf="move.landingLag">
+            <label>Landing lag: </label>
+            {{move.landingLag}}
+        </div>
+        <div *ngIf="move.notes">
+            <label>Notes : </label>
+            {{move.notes}}
+        </div>
+    </div>
+</div>

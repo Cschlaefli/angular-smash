@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import { MoveListComponent } from './move-list/move-list.component';
+import { MoveDetailComponent } from './move-detail/move-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { MoveListComponent } from './move-list/move-list.component';
     CharacterListComponent,
     CharacterDetailComponent,
     CharacterProperties,
-    MoveListComponent
+    MoveListComponent,
+    MoveDetailComponent,
   ],
   imports: [
     NgbModule,
@@ -30,6 +33,7 @@ import { MoveListComponent } from './move-list/move-list.component';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [ ],
   bootstrap: [AppComponent]

@@ -52,14 +52,15 @@ export class CharacterListComponent implements OnInit {
   {
     let descending = this.descending;
     this.characters.sort(function(a, b){
+
+      if (a[property] === b[property]) 
+        return 0
+
       if(descending)
-        return a[property] - b[property]
-      return b[property] - a[property]
+        return a[property] > b[property] ? -1 : 1
+      return a[property] < b[property] ? -1 : 1
     })
   }
 
-  compare(a, b)
-  {
-  }
 
 }

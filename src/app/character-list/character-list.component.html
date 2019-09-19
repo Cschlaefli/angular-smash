@@ -1,37 +1,41 @@
 <h1 class="text-center">
     Characters
 </h1>
-<div class="row">
-    <div class="col-sm-8"></div>
-    <div class="col">
-        <div ngbDropdown class="row justify-content-center">
-            <label class="text-center mx-auto">Sort by : </label>
-            <button class="btn btn-primary mx-auto" ngbDropdownToggle>{{selectedProperty | characterProperties}}</button>
+<div class="row mr-2">
+    <div class="col"></div>
+    <div class="col-sm-4 ">
+        <div class="row">
+            <label class="">Sort by : </label>
+        </div>
+        <div ngbDropdown class="row">
+            <button class="btn btn-primary " ngbDropdownToggle>{{selectedProperty | characterProperties}}</button>
             <div ngbDropdownMenu>
                 <button *ngFor="let item of prettyNames | keyvalue" ngbDropdownItem (click)="selectedProperty=item.key">{{item.value}}</button>
             </div>
-            <button class="btn btn-info mx-auto" *ngIf="descending" (click)="descending = !descending"> Descending
+            <button class="btn btn-info ml-auto" *ngIf="descending" (click)="descending = !descending"> Descending
             </button>
-            <button class="btn btn-info mx-auto" *ngIf="!descending" (click)="descending = !descending"> Ascending
+            <button class="btn btn-info ml-auto" *ngIf="!descending" (click)="descending = !descending"> Ascending
             </button>
         </div>
-        <div class="row m-1">
+        <div class="row mt-1 mb-2">
             <button class="col btn btn-primary" (click)="onSort(selectedProperty)">Sort</button>
         </div>
+        <button type="button" class="btn btn-secondary row col mx-auto mb-2" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+            Hide List
+        </button>
     </div>
-    <div class="col-sm-1"></div>
+
 </div>
 
 
-<div class="row container fluid">
-    <div class="col">
-        <!--<app-character-detail [character]="character"></app-character-detail>-->
+<div class="row mr-2">
+    <div class="col" >
         <app-character-detail [character]="selectedCharacter"></app-character-detail>
     </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-3">
+    <div class="col-sm-4 ml-2 overflow-auto" [ngbCollapse]="isCollapsed">
         <div (click)="onSelect(character)" class="row p-2 h3 mb-2 border border-primary" *ngFor="let character of characters">
-            {{character.name}}
+            {{characters.indexOf(character)+1}}. {{character.name}}
         </div>
     </div>
 </div>
