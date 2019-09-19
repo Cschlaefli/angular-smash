@@ -1,41 +1,17 @@
-<h1 class="text-center">
-    Characters
-</h1>
-<div class="row mr-2">
-    <div class="col"></div>
-    <div class="col-sm-4 ">
-        <div class="row">
-            <label class="">Sort by : </label>
-        </div>
-        <div ngbDropdown class="row">
-            <button class="btn btn-primary " ngbDropdownToggle>{{selectedProperty | characterProperties}}</button>
-            <div ngbDropdownMenu>
-                <button *ngFor="let item of prettyNames | keyvalue" ngbDropdownItem (click)="selectedProperty=item.key">{{item.value}}</button>
-            </div>
-            <button class="btn btn-info ml-auto" *ngIf="descending" (click)="descending = !descending"> Descending
-            </button>
-            <button class="btn btn-info ml-auto" *ngIf="!descending" (click)="descending = !descending"> Ascending
-            </button>
-        </div>
-        <div class="row mt-1 mb-2">
-            <button class="col btn btn-primary" (click)="onSort(selectedProperty)">Sort</button>
-        </div>
-        <button type="button" class="btn btn-secondary row col mx-auto mb-2" (click)="isCollapsed = !isCollapsed"
-            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-            Hide List
+
+        <button mat-button class="btn btn-primary float-right mx-4 my-3" (click)="list.toggle()">
+           Toggle List
         </button>
-    </div>
+<mat-sidenav-container class="container fluid" style="height:90%;top:10%" >
+    <mat-sidenav-content class="sidenav-flex">
 
-</div>
-
-
-<div class="row mr-2">
-    <div class="col" >
-        <app-character-detail [character]="selectedCharacter"></app-character-detail>
-    </div>
-    <div class="col-sm-4 ml-2 overflow-auto" [ngbCollapse]="isCollapsed">
-        <div (click)="onSelect(character)" class="row p-2 h3 mb-2 border border-primary" *ngFor="let character of characters">
+        <div class="col" >
+            <app-character-detail [character]="selectedCharacter"></app-character-detail>
+        </div>
+    </mat-sidenav-content>
+    <mat-sidenav #list opened [(opened)]="opened" mode="side" position="end" >
+        <div (click)="onSelect(character)" class="p-2 h3 mb-2 border border-primary" *ngFor="let character of characters">
             {{characters.indexOf(character)+1}}. {{character.name}}
         </div>
-    </div>
-</div>
+    </mat-sidenav>
+</mat-sidenav-container>

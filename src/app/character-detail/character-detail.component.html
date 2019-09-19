@@ -1,43 +1,25 @@
-<div *ngIf="character" class="border border-dark">
-        <ngb-accordion>
-                <ngb-panel id=character.name>
-                  <ng-template ngbPanelHeader>
-                    <div class="d-flex align-items-center justify-content-between">
-                      <button ngbPanelToggle class="btn btn-info col text-justify">{{character.name}}</button>
-                      <div>
-                        <button class="close ml-5" (click)="character = null">X</button>
-                      </div>
-                    </div>
-                  </ng-template>
-                  <ng-template ngbPanelContent>
-                    <div class="row"> 
-                      <div class="col mx-2">
-                        <div class="row mx-1">
-                      <button type="button" class="btn btn-info col" (click)="isCollapsed = !isCollapsed"
-                        [attr.aria-expanded]="!isCollapsed" aria-controls="statsCollapse">
-                        Stats
-                      </button>
-                        </div>
-                        <div class="border border-dark mx-1 row" id="stats" [ngbCollapse]="isCollapsed">
-                          <div class="col">
-                              <div *ngFor="let item of character | keyvalue">
-                                  <div class="row " *ngIf="item.key | characterProperties">
-                                    <div *ngIf="item.key != 'name'">
-                                      <label class="text-justify mx-1">{{item.key | characterProperties}} : </label>
-                                      {{item.value}}
-                                    </div>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col mx-2">
-                        <app-move-list [moves]="character.moves"></app-move-list>
-                      </div>
-                    </div>
-                  </ng-template>
-                </ngb-panel>
-        </ngb-accordion>
-</div>
+<mat-accordion *ngIf="character">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{character.name}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    
+      <app-move-list [moves]="character.moves"></app-move-list>
+      <div class="card text-white mx-1 bg-primary" style="width: 100%;">
+        <div class="card-header">Stats :</div>
+        <div class="card-body bg-dark">
+          <mat-list>
+          <div *ngFor="let item of character | keyvalue">
+            <div class="row" *ngIf="item.key | characterProperties">
+              <div *ngIf="item.key != 'name'">
+                <label class="text-justify mx-1 col">{{item.key | characterProperties}} : {{item.value}}</label>
+              </div>
+            </div>
+          </div>
+          </mat-list>
+        </div>
+      </div>
+    </mat-expansion-panel>
+</mat-accordion>

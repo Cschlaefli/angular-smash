@@ -1,5 +1,52 @@
+<mat-tab-group>
+<mat-tab label="Grabs">
+        <div>
+            <mat-grid-list cols="3" rowHeight="1:1">
+                <mat-grid-tile *ngFor="let move of grabs">
+                    <app-move-detail [move]=move></app-move-detail>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+</mat-tab>
+<mat-tab label="Dodges">
+        <div>
+            <mat-grid-list cols="3" rowHeight="1:1">
+                <mat-grid-tile *ngFor="let move of dodges">
+                    <app-move-detail [move]=move></app-move-detail>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+</mat-tab>
+<mat-tab label="Ground">
+        <div>
+            <mat-grid-list cols="3" rowHeight="1:1" >
+                <mat-grid-tile *ngFor="let move of grounds">
+                    <app-move-detail [move]=move></app-move-detail>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+</mat-tab>
+<mat-tab label="Aerials">
+        <div>
+            <mat-grid-list cols="3" rowHeight="1:1" >
+                <mat-grid-tile *ngFor="let move of aerials">
+                    <app-move-detail [move]=move></app-move-detail>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+</mat-tab>
+<mat-tab label="Specials">
+        <div>
+            <mat-grid-list cols="3" rowHeight="1:1" >
+                <mat-grid-tile *ngFor="let move of specials">
+                    <app-move-detail [move]=move></app-move-detail>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+</mat-tab>
+</mat-tab-group>
 
-
+<!--
 <div class="row mx-1 mb-2 mt-2">
     <button type="button" class="btn col btn-outline-primary" (click)="grab = !grab"
         [attr.aria-expanded]="!grab" aria-controls="grabCollapse">
@@ -27,3 +74,4 @@
         </div>
     </div>
 </div>
+-->

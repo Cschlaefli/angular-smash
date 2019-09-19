@@ -14,6 +14,11 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
 import { MoveListComponent } from './move-list/move-list.component';
 import { MoveDetailComponent } from './move-detail/move-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatGridListModule} from '@angular/material/grid-list';
+import { MatTabsModule} from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -25,15 +30,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CharacterProperties,
     MoveListComponent,
     MoveDetailComponent,
+
   ],
   imports: [
     NgbModule,
+    MatSidenavModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatGridListModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatListModule,
   ],
   providers: [ ],
   bootstrap: [AppComponent]
