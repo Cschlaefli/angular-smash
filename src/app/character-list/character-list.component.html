@@ -25,7 +25,7 @@
             <button class="col btn btn-primary" (click)="onSort(selectedProperty)">Sort</button>
         </div>
 
-        <div (click)="onSelect(character)" class="p-2 h3 m-2 border border-primary" *ngFor="let character of characters">
+        <div (click)="onSelect(character); list.toggle()" class="p-2 h3 m-2 border border-primary" *ngFor="let character of characters">
             {{characters.indexOf(character)+1}}. {{character.name}}
         </div>
     </mat-sidenav>
