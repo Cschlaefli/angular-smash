@@ -19,6 +19,7 @@ import { MatGridListModule} from '@angular/material/grid-list';
 import { MatTabsModule} from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MatListModule } from '@angular/material/list';
     MatTabsModule,
     MatExpansionModule,
     MatListModule,
+    FlexLayoutModule,
   ],
   providers: [ ],
   bootstrap: [AppComponent]

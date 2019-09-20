@@ -1,48 +1,38 @@
 <mat-tab-group class="sticky-top">
 <mat-tab label="Grabs">
-        <div>
-            <mat-grid-list cols="3" rowHeight="1:1">
-                <mat-grid-tile *ngFor="let move of grabs">
+        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
+            <div fxFlex="auto" *ngFor="let move of grabs">
                     <app-move-detail [move]=move></app-move-detail>
-                </mat-grid-tile>
-            </mat-grid-list>
+            </div>
         </div>
 </mat-tab>
 <mat-tab label="Dodges">
-        <div>
-            <mat-grid-list cols="3" rowHeight="1:1">
-                <mat-grid-tile *ngFor="let move of dodges">
-                    <app-move-detail [move]=move></app-move-detail>
-                </mat-grid-tile>
-            </mat-grid-list>
+        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
+            <div *ngFor="let move of dodges">
+                <app-move-detail [move]=move></app-move-detail>
+            </div>
         </div>
 </mat-tab>
 <mat-tab label="Ground">
-        <div>
-            <mat-grid-list cols="3" rowHeight="1:1" >
-                <mat-grid-tile *ngFor="let move of grounds">
+        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
+                <div *ngFor="let move of grounds">
                     <app-move-detail [move]=move></app-move-detail>
-                </mat-grid-tile>
-            </mat-grid-list>
+                </div>  
         </div>
 </mat-tab>
 <mat-tab label="Aerials">
-        <div>
-            <mat-grid-list cols="3" rowHeight="1:1" >
-                <mat-grid-tile *ngFor="let move of aerials">
+        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
+                <div *ngFor="let move of aerials">
                     <app-move-detail [move]=move></app-move-detail>
-                </mat-grid-tile>
-            </mat-grid-list>
+                </div>
         </div>
 </mat-tab>
 <mat-tab label="Specials">
-        <div>
-            <mat-grid-list cols="3" rowHeight="1:1" >
-                <mat-grid-tile *ngFor="let move of specials">
+        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
+                <div *ngFor="let move of specials">
                     <app-move-detail [move]=move></app-move-detail>
-                </mat-grid-tile>
-            </mat-grid-list>
-        </div>
+                </div>
+            </div>
 </mat-tab>
 </mat-tab-group>
 
