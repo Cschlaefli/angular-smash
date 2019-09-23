@@ -11,55 +11,56 @@ import { Character } from '../_models';
 export class CharacterListComponent implements OnInit {
 
   characters: Character[];
-  selectedCharacter : Character;
-  selectedProperty = "runSpeed";
+  selectedCharacter: Character;
+  selectedProperty = 'runSpeed';
   prettyNames;
-  descending : boolean;
+  descending: boolean;
   constructor(
     private characterService: CharacterService,
   ) {
     this.descending = false;
     this.prettyNames = {
-    "name" : "Name",
-    "weight" : "Weight",
-    "gravity" : "Gravity",
-    "runSpeed" : "Run Speed",
-    "initialDash" : "Inital Dash",
-    "airSpeed" : "Air Speed",
-    "totalAirAcceleration" : "Total Air Acceleration",
-    "fastFall" : "Fast Fall",
-    "shieldGrab" : "Shield Grab",
-    "shieldDrop" : "Shield Drop",
-    "jumpSquat" : "Jump Squat"
-  }
+    name : 'Name',
+    weight : 'Weight',
+    gravity : 'Gravity',
+    runSpeed : 'Run Speed',
+    initialDash : 'Inital Dash',
+    airSpeed : 'Air Speed',
+    totalAirAcceleration : 'Total Air Acceleration',
+    fastFall : 'Fast Fall',
+    shieldGrab : 'Shield Grab',
+    shieldDrop : 'Shield Drop',
+    jumpSquat : 'Jump Squat'
+  };
    }
 
   ngOnInit() {
     this.loadAllCharacters();
   }
 
-  private loadAllCharacters(){
+  private loadAllCharacters() {
     this.characterService.getAll()
       .pipe(first())
-      .subscribe(characters => this.characters = characters)
+      .subscribe(characters => this.characters = characters);
   }
 
   onSelect(character): void {
     this.selectedCharacter = character;
   }
 
-  onSort(property)
-  {
-    let descending = this.descending;
-    this.characters.sort(function(a, b){
+  onSort(property) {
+    const descending = this.descending;
+    this.characters.sort(function(a, b) {
 
-      if (a[property] === b[property]) 
-        return 0
+      if (a[property] === b[property]) {
+        return 0;
+      }
 
-      if(descending)
-        return a[property] > b[property] ? -1 : 1
-      return a[property] < b[property] ? -1 : 1
-    })
+      if (descending) {
+        return a[property] > b[property] ? -1 : 1;
+      }
+      return a[property] < b[property] ? -1 : 1;
+    });
   }
 
 

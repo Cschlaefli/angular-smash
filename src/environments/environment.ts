@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl : "https://cade.schlaefli.dev/api"
+  apiUrl : 'https://cade.schlaefli.dev/api'
 };
 
 /*

@@ -24,7 +24,7 @@ export class AuthenticationService {
     login(username, password) {
         return this.http.post<any>(`${environment.apiUrl}/auth/login`, { username, password })
             .pipe(map(user => {
-                console.log(user)
+                console.log(user);
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 this.currentUserSubject.next(user);
@@ -45,7 +45,7 @@ export class AuthenticationService {
         // return an observable with a user-facing error message
         return throwError(
             'Something bad happened; please try again later.');
-        };
+        }
     logout() {
         // remove user from local storage and set current user to null
         localStorage.removeItem('currentUser');

@@ -8,7 +8,7 @@ import { Character } from '../_models';
 })
 export class CharacterDetailComponent implements OnInit {
 
-  @Input() character :Character;
+  @Input() character: Character;
   constructor() { }
 
   ngOnInit() {

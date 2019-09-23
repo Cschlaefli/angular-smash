@@ -8,8 +8,8 @@ import { Move } from '../_models';
 })
 export class MoveDetailComponent implements OnInit {
 
-  @Input() move : Move;
-  constructor(){}
+  @Input() move: Move;
+  constructor() {}
 
   ngOnInit() {
   }
