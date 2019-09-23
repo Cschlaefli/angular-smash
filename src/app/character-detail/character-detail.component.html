@@ -1,25 +1,28 @@
 <mat-accordion *ngIf="character">
+  <mat-card>
+    <mat-card-title>
+      {{character.name}}
+    </mat-card-title>
+  </mat-card>
+  <app-move-list [moves]="character.moves"></app-move-list>
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{character.name}}
+        Stats
       </mat-panel-title>
     </mat-expansion-panel-header>
-    
-      <app-move-list [moves]="character.moves"></app-move-list>
-      <div class="card text-white mx-1 bg-primary" style="width: 100%;">
-        <div class="card-header">Stats :</div>
-        <div class="card-body bg-dark">
-          <mat-list>
-          <div *ngFor="let item of character | keyvalue">
-            <div class="row" *ngIf="item.key | characterProperties">
-              <div *ngIf="item.key != 'name'">
-                <label class="text-justify mx-1 col">{{item.key | characterProperties}} : {{item.value}}</label>
+    <mat-card>
+          <mat-card-content class="border border-primary" >
+            <mat-list>
+            <div *ngFor="let item of character | keyvalue">
+              <div class="row" *ngIf="item.key | characterProperties">
+                <div *ngIf="item.key != 'name'">
+                  <label class="text-justify mx-1 col">{{item.key | characterProperties}} : {{item.value}}</label>
+                </div>
               </div>
             </div>
-          </div>
-          </mat-list>
-        </div>
-      </div>
+            </mat-list>
+          </mat-card-content>
+    </mat-card>
     </mat-expansion-panel>
 </mat-accordion>

@@ -1,37 +1,54 @@
-<mat-tab-group class="sticky-top">
-<mat-tab label="Ground">
-        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
-                <div *ngFor="let move of grounds">
-                    <app-move-detail [move]=move></app-move-detail>
-                </div>  
-        </div>
-</mat-tab>
-<mat-tab label="Aerials">
-        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
-                <div *ngFor="let move of aerials">
-                    <app-move-detail [move]=move></app-move-detail>
-                </div>
-        </div>
-</mat-tab>
-<mat-tab label="Specials">
-        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
-                <div *ngFor="let move of specials">
-                    <app-move-detail [move]=move></app-move-detail>
-                </div>
-            </div>
-</mat-tab>
-<mat-tab label="Grabs">
-        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
-            <div fxFlex="auto" *ngFor="let move of grabs">
-                    <app-move-detail [move]=move></app-move-detail>
-            </div>
-        </div>
-</mat-tab>
-<mat-tab label="Dodges">
-        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
-            <div *ngFor="let move of dodges">
-                <app-move-detail [move]=move></app-move-detail>
-            </div>
-        </div>
-</mat-tab>
-</mat-tab-group>
+
+<mat-expansion-panel>
+        <mat-expansion-panel-header>
+                <mat-panel-title>
+                        Attacks
+                </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-tab-group>
+                <mat-tab label="Ground">
+                        <div fxLayout="row wrap" fxLayoutGap="0rem" fxLayoutAlign="flex-start">
+                                <div *ngFor="let move of grounds">
+                                <app-move-detail [move]=move></app-move-detail>
+                                </div>  
+                        </div>
+                </mat-tab>
+                <mat-tab label="Aerials">
+                        <div fxLayout="row wrap" fxLayoutGap="0rem" fxLayoutAlign="flex-start">
+                                <div *ngFor="let move of aerials">
+                                <app-move-detail [move]=move></app-move-detail>
+                                </div>
+                        </div>
+                </mat-tab>
+                <mat-tab label="Specials">
+                        <div fxLayout="row wrap" fxLayoutGap="0rem" fxLayoutAlign="flex-start">
+                                <div *ngFor="let move of specials">
+                                <app-move-detail [move]=move></app-move-detail>
+                                </div>
+                        </div>
+                </mat-tab>
+        </mat-tab-group>
+</mat-expansion-panel>
+<mat-expansion-panel>
+        <mat-expansion-panel-header>
+                <mat-panel-title>
+                        Grabs/Dodges
+                </mat-panel-title>
+        </mat-expansion-panel-header>
+                <mat-tab-group>
+                <mat-tab label="Grabs">
+                        <div fxLayout="row wrap" fxLayoutGap="0rem" fxLayoutAlign="flex-start">
+                        <div fxFlex="auto" *ngFor="let move of grabs">
+                                <app-move-detail [move]=move></app-move-detail>
+                        </div>
+                        </div>
+                </mat-tab>
+                <mat-tab label="Dodges">
+                        <div fxLayout="row wrap" fxLayoutGap="0rem" fxLayoutAlign="flex-start">
+                        <div *ngFor="let move of dodges">
+                                <app-move-detail [move]=move></app-move-detail>
+                        </div>
+                        </div>
+                </mat-tab>
+        </mat-tab-group>
+</mat-expansion-panel>
