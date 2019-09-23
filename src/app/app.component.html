@@ -2,6 +2,8 @@
 <div style="text-align:center">
   <nav class="navbar navbar-expand navbar-dark bg-dark ml-auto">
     <a class="navbar-brand nav-link" routerLink="/character-list">Ultimate Frame Data</a>
+    <a class="nav-item nav-link" href="/swagger">API docs</a>
+    
     <div class="nav navbar-nav ml-auto">
       <a class="nav-item nav-link " routerLink="/login" *ngIf="!currentUser">Login</a>
       <a class="nav-item nav-link " (click)="logout()" *ngIf="currentUser">Logout</a>

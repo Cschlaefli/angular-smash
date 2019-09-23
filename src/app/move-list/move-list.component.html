@@ -1,18 +1,4 @@
 <mat-tab-group class="sticky-top">
-<mat-tab label="Grabs">
-        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
-            <div fxFlex="auto" *ngFor="let move of grabs">
-                    <app-move-detail [move]=move></app-move-detail>
-            </div>
-        </div>
-</mat-tab>
-<mat-tab label="Dodges">
-        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
-            <div *ngFor="let move of dodges">
-                <app-move-detail [move]=move></app-move-detail>
-            </div>
-        </div>
-</mat-tab>
 <mat-tab label="Ground">
         <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
                 <div *ngFor="let move of grounds">
@@ -34,34 +20,18 @@
                 </div>
             </div>
 </mat-tab>
+<mat-tab label="Grabs">
+        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
+            <div fxFlex="auto" *ngFor="let move of grabs">
+                    <app-move-detail [move]=move></app-move-detail>
+            </div>
+        </div>
+</mat-tab>
+<mat-tab label="Dodges">
+        <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="flex-start">
+            <div *ngFor="let move of dodges">
+                <app-move-detail [move]=move></app-move-detail>
+            </div>
+        </div>
+</mat-tab>
 </mat-tab-group>
-
-<!--
-<div class="row mx-1 mb-2 mt-2">
-    <button type="button" class="btn col btn-outline-primary" (click)="grab = !grab"
-        [attr.aria-expanded]="!grab" aria-controls="grabCollapse">
-    Grabs
-    </button>
-</div>
-<div>
-    <div class="row ml-2 mb-2" id="grabs" [ngbCollapse]="!grab">
-        <div class="col-3-md" *ngFor="let move of grabs">
-            <app-move-detail [move]=move></app-move-detail>
-        </div>
-    </div>
-</div>
-
-<div class="row mx-1 mb-2">
-    <button type="button" class="btn col btn-outline-primary" (click)="dodge = !dodge"
-        [attr.aria-expanded]="!dodge" aria-controls="dodgeCollapse">
-    Dodges
-    </button>
-</div>
-<div>
-    <div class="row ml-1 mb-2" id="dodges" [ngbCollapse]="!dodge">
-        <div class="col-3-md" *ngFor="let move of dodges">
-            <app-move-detail [move]=move></app-move-detail>
-        </div>
-    </div>
-</div>
--->
