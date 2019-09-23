@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CharacterService } from '../_services';
 import { first } from 'rxjs/operators';
 import { Character } from '../_models';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-character-list',
@@ -12,6 +13,7 @@ export class CharacterListComponent implements OnInit {
 
   characters: Character[];
   selectedCharacter: Character;
+  selectedCharacters: Character[];
   selectedProperty = 'runSpeed';
   prettyNames;
   descending: boolean;
@@ -35,6 +37,7 @@ export class CharacterListComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.selectedCharacters = new Array<Character>();
     this.loadAllCharacters();
   }
 
@@ -45,7 +48,28 @@ export class CharacterListComponent implements OnInit {
   }
 
   onSelect(character): void {
-    this.selectedCharacter = character;
+    if (this.selectedCharacters.indexOf(character) < 0)
+    this.selectedCharacters.push(character);
+  }
+
+  onChanged(character : Character): void{
+    this.selectedCharacters = this.selectedCharacters.filter(c => c !== character);
+  }
+
+  onSelectedSort(property)
+  {
+    const descending = this.descending;
+    this.selectedCharacters.sort(function(a, b) {
+
+      if (a[property] === b[property]) {
+        return 0;
+      }
+
+      if (descending) {
+        return a[property] > b[property] ? -1 : 1;
+      }
+      return a[property] < b[property] ? -1 : 1;
+    });
   }
 
   onSort(property) {
@@ -62,6 +86,11 @@ export class CharacterListComponent implements OnInit {
       return a[property] < b[property] ? -1 : 1;
     });
   }
+  drop(event: CdkDragDrop<string[]>) {
+    console.log(event.previousIndex, event.currentIndex)
+    moveItemInArray(this.selectedCharacters, event.previousIndex, event.currentIndex);
+  }
+
 
 
 }

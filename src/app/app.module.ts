@@ -20,7 +20,8 @@ import { MatTabsModule} from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { DragDropModule } from '@angular/cdk/drag-drop'; 
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {MatCardModule} from '@angular/material/card';
     MatListModule,
     FlexLayoutModule,
     MatCardModule,
+    DragDropModule,
   ],
   providers: [ ],
   bootstrap: [AppComponent]

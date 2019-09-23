@@ -1,31 +1,39 @@
 
-        <button mat-button class="btn btn-primary float-right mx-4 my-3" (click)="list.toggle()">
-           Toggle List
-        </button>
 
-<mat-sidenav-container style="height:100%;top:0%;width:100%" >
+<mat-sidenav-container style="height:100%;top:0%;width:100%" autosize>
     <mat-sidenav-content class="sidenav-flex">
+
         <div class="col-md m-2" >
-            <app-character-detail [character]="selectedCharacter"></app-character-detail>
+            <div ngbDropdown class="m-1">
+                <label class="">Sort by : </label>
+                <button class="btn btn-primary " ngbDropdownToggle>{{selectedProperty | characterProperties}}</button>
+                <div ngbDropdownMenu>
+                    <button *ngFor="let item of prettyNames | keyvalue" ngbDropdownItem (click)="selectedProperty=item.key">{{item.value}}</button>
+                </div>
+                <button class="btn btn-info m-1" *ngIf="descending" (click)="descending = !descending"> Descending
+                </button>
+                <button class="btn btn-info m-1" *ngIf="!descending" (click)="descending = !descending"> Ascending
+                </button>
+
+                <button mat-button class="btn btn-success mx-1 float-right " (click)="list.toggle()">
+                    Toggle List
+                </button>
+
+            </div>
+
+            <div class="row m-2">
+            <button *ngIf="selectedCharacters.length > 0" class="btn btn-primary mx-auto" (click)="onSelectedSort(selectedProperty)">Sort Selected</button>
+            </div>
+            <div cdkDropList (cdkDropListDropped)="drop($event); list.close()" class="row"> 
+                <app-character-detail cdkDrag (characterChanged)="onChanged($event); list.open()"  [character]="character" *ngFor="let character of selectedCharacters" ></app-character-detail>
+            </div>
         </div>
     </mat-sidenav-content>
     <mat-sidenav #list opened class="m-3" mode="side" position="end">
-        <div ngbDropdown class="m-1">
-            <label class="">Sort by : </label>
-            <button class="btn btn-primary " ngbDropdownToggle>{{selectedProperty | characterProperties}}</button>
-            <div ngbDropdownMenu>
-                <button *ngFor="let item of prettyNames | keyvalue" ngbDropdownItem (click)="selectedProperty=item.key">{{item.value}}</button>
-            </div>
-            <button class="btn btn-info m-1" *ngIf="descending" (click)="descending = !descending"> Descending
-            </button>
-            <button class="btn btn-info m-1" *ngIf="!descending" (click)="descending = !descending"> Ascending
-            </button>
-        </div>
         <div class="m-1">
             <button class="col btn btn-primary" (click)="onSort(selectedProperty)">Sort</button>
         </div>
-
-        <div (click)="onSelect(character); list.toggle()" class="p-2 h3 m-2 border border-primary" *ngFor="let character of characters">
+        <div (click)="onSelect(character)" class="p-2 h3 m-2 border border-primary" *ngFor="let character of characters">
             {{characters.indexOf(character)+1}}. {{character.name}}
         </div>
     </mat-sidenav>

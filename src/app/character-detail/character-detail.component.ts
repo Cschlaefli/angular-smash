@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { Character } from '../_models';
 
 @Component({
@@ -9,9 +9,15 @@ import { Character } from '../_models';
 export class CharacterDetailComponent implements OnInit {
 
   @Input() character: Character;
+  @Output() characterChanged = new EventEmitter<Character>();
   constructor() { }
 
   ngOnInit() {
   }
-
+  
+  removeCharacter(character: Character){
+    this.characterChanged.emit(character);
+    this.character = null;
+  }
+  
 }

@@ -1,9 +1,9 @@
-<mat-accordion *ngIf="character">
-  <mat-card>
-    <mat-card-title>
-      {{character.name}}
-    </mat-card-title>
-  </mat-card>
+<mat-accordion displayMode="flat" *ngIf="character">
+  <mat-expansion-panel class="col">
+    <mat-expansion-panel-header>
+      <label class="m-auto">{{character.name}}</label>
+      <button (click)="removeCharacter(character)" class="btn btn-danger mx-2 float-right">X</button>
+    </mat-expansion-panel-header>
   <app-move-list [moves]="character.moves"></app-move-list>
   <mat-expansion-panel>
     <mat-expansion-panel-header>
@@ -25,4 +25,6 @@
           </mat-card-content>
     </mat-card>
     </mat-expansion-panel>
+  </mat-expansion-panel>
+
 </mat-accordion>
