@@ -21,8 +21,8 @@
             <div class="row m-2">
             <button *ngIf="selectedCharacters.length > 0" class="btn btn-primary mx-2" (click)="onSelectedSort(selectedProperty)">Sort Selected</button>
             </div>
-            <div cdkDropList (cdkDropListDropped)="drop($event); list.close()" class="row"> 
-                <app-character-detail cdkDrag (characterChanged)="onChanged($event); list.open()"  [character]="character" *ngFor="let character of selectedCharacters" ></app-character-detail>
+            <div cdkDropList (cdkDropListDropped)="drop($event)" class="row"> 
+                <app-character-detail cdkDrag (characterChanged)="onChanged($event);"  [character]="character" *ngFor="let character of selectedCharacters" ></app-character-detail>
             </div>
         </div>
     </mat-sidenav-content>
