@@ -1,16 +1,16 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <nav class="navbar navbar-expand navbar-dark bg-dark ml-auto">
-    <a class="navbar-brand nav-link" routerLink="/character-list">Ultimate Frame Data</a>
-    <a class="nav-item nav-link" href="/swagger">API docs</a>
+  <mat-toolbar class="mat-toolbar mat-primary">
+    <a class="mr-1" style="color: white" routerLink="/character-list">Ultimate Frame Data</a>
+    <a class="ml-3" style="color: whitesmoke; font-size:1rem" href="/swagger">API docs</a>
+    <a class="ml-3" style="color: whitesmoke; font-size:1rem" routerLink="/about">About</a>
     
-    <div class="nav navbar-nav ml-auto">
-      <a class="nav-item nav-link " routerLink="/login" *ngIf="!currentUser">Login</a>
-      <a class="nav-item nav-link " (click)="logout()" *ngIf="currentUser">Logout</a>
+    <div class="ml-auto">
+      <a style="color : grey" routerLink="/login" *ngIf="!currentUser">Login</a>
+      <a style="color : grey " (click)="logout()" *ngIf="currentUser">Logout</a>
     </div>
-  </nav>
+  </mat-toolbar>
 </div>
 
-<div class= "mat-app-background basic-container" style="height:100%;">
+<div class= "basic-container" style="height:100%;">
 <router-outlet></router-outlet>
 </div>

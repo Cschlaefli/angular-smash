@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterService } from '../_services';
-import { first } from 'rxjs/operators';
+import { first} from 'rxjs/operators';
 import { Character } from '../_models';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
@@ -14,12 +14,15 @@ export class CharacterListComponent implements OnInit {
   characters: Character[];
   selectedCharacter: Character;
   selectedCharacters: Character[];
-  selectedProperty = 'runSpeed';
+  selectedProperty = 'name';
   prettyNames;
+  query: string;
   descending: boolean;
+  listOpenState : boolean;
   constructor(
     private characterService: CharacterService,
   ) {
+    this.listOpenState = true;
     this.descending = false;
     this.prettyNames = {
     name : 'Name',
@@ -90,7 +93,5 @@ export class CharacterListComponent implements OnInit {
     console.log(event.previousIndex, event.currentIndex)
     moveItemInArray(this.selectedCharacters, event.previousIndex, event.currentIndex);
   }
-
-
 
 }

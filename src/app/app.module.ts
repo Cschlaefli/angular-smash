@@ -22,6 +22,15 @@ import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { DragDropModule } from '@angular/cdk/drag-drop'; 
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button'; 
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import { SearchPipe } from './search.pipe';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { AboutComponent } from './about/about.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +42,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     CharacterProperties,
     MoveListComponent,
     MoveDetailComponent,
-
+    SearchPipe,
+    AboutComponent,
+    RegisterComponent,
   ],
   imports: [
     NgbModule,
@@ -51,6 +62,12 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     FlexLayoutModule,
     MatCardModule,
     DragDropModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
   providers: [ ],
   bootstrap: [AppComponent]

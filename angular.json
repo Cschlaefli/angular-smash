@@ -124,5 +124,10 @@
       }
     }
   },
-  "defaultProject": "smash-app"
+  "defaultProject": "smash-app",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "css"
+    }
+  }
 }

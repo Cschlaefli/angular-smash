@@ -1,8 +1,10 @@
-<mat-accordion displayMode="flat" *ngIf="character">
+<mat-accordion displayMode="flat" multi="true" *ngIf="character">
   <mat-expansion-panel class="col">
     <mat-expansion-panel-header>
+      <button mat-flat-button color="warn" (click)="removeCharacter(character)" class="m-1">
+        <mat-icon>close</mat-icon>
+      </button>
       <label class="m-auto">{{character.name}}</label>
-      <button (click)="removeCharacter(character)" class="btn btn-danger mx-2 float-right">X</button>
     </mat-expansion-panel-header>
   <app-move-list [moves]="character.moves"></app-move-list>
   <mat-expansion-panel>
@@ -12,7 +14,7 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-card>
-          <mat-card-content class="border border-primary" >
+          <mat-card-content class=" m-1 p-1" >
             <mat-list>
             <div *ngFor="let item of character | keyvalue">
               <div class="row" *ngIf="item.key | characterProperties">

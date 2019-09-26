@@ -1,5 +1,5 @@
 
-<mat-card fxFlex="1 1 auto" class="m-1 p-2 border border-primary">
+<mat-card fxFlex="1 1 auto" class="m-2 p-3">
     <mat-card-title>
         {{move.name}}
     </mat-card-title>
@@ -43,47 +43,3 @@
         </div>
     </mat-card-content>
 </mat-card>
-
-<!--
-<div fxFlex="1 1 auto" class="card text-white bg-primary">
-    <div class="card-header">{{move.name}}</div>
-    <div class="card-body bg-dark">
-        <div *ngIf="move.advantage">
-            <label>Advantage : </label>
-            {{move.advantage}}
-        </div>
-        <div *ngIf="move.baseDamage">
-            <label>Base damage: </label>
-            {{move.baseDamage}}
-        </div>
-        <div *ngIf="move.landingLag">
-            <label>Landing lag: </label>
-            {{move.landingLag}}
-        </div>
-        <div *ngIf="move.notes">
-            <label>Notes : </label>
-            {{move.notes}}
-        </div>
-        <div *ngIf="move.shieldLag">
-            <label>Shield Lag : </label>
-            {{move.shieldLag}}
-        </div>
-        <div *ngIf="move.shieldStun">
-            <label>Shield Stun : </label>
-            {{move.shieldStun}}
-        </div>
-        <div *ngIf="move.startup">
-            <label>Startup : </label>
-            {{move.startup}}
-        </div>
-        <div *ngIf="move.totalFrames">
-            <label>Total Frames : </label>
-            {{move.totalFrames}}
-        </div>
-        <div *ngIf="move.whichHitbox">
-            <label>Hitboxes: </label>
-            {{move.whichHitbox}}
-        </div>
-    </div>
-</div>
--->

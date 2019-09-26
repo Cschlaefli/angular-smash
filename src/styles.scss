@@ -2,4 +2,31 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/_theming.scss';
+
+@include mat-core();
+
+$dark-primary: mat-palette($mat-deep-purple);
+$dark-accent: mat-palette($mat-deep-orange);
+
+$dark: mat-dark-theme($dark-primary, $dark-accent);
+$light: mat-light-theme($dark-primary, $dark-accent);
+
+@media (prefers-color-scheme: light) {
+        @include angular-material-theme($light);
+}
+
+@media (prefers-color-scheme: dark) {
+        @include angular-material-theme($dark);
+        input[type=password] {
+                background-color: #424242;
+                color: white;
+        }
+        input[type=text] {
+                background-color: #424242;
+                color: white;
+        }
+        ::placeholder{
+                color: whitesmoke;
+        }
+}

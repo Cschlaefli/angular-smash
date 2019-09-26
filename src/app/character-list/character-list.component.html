@@ -1,13 +1,17 @@
 
 <div ngbDropdown class="m-1">
                 <label class="">Sort by : </label>
-                <button class="btn btn-primary " ngbDropdownToggle>{{selectedProperty | characterProperties}}</button>
-                <div ngbDropdownMenu>
-                    <button *ngFor="let item of prettyNames | keyvalue" ngbDropdownItem (click)="selectedProperty=item.key">{{item.value}}</button>
-                </div>
-                <button class="btn btn-info m-1" *ngIf="descending" (click)="descending = !descending"> Descending
+                <button mat-flat-button class=" m-1" color="primary" [matMenuTriggerFor]="menu">
+                    {{selectedProperty | characterProperties}}
                 </button>
-                <button class="btn btn-info m-1" *ngIf="!descending" (click)="descending = !descending"> Ascending
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item *ngFor="let item of prettyNames | keyvalue" (click)="selectedProperty=item.key">{{item.value}}</button>
+                </mat-menu>
+                <button mat-flat-button color="primary" class="m-1" *ngIf="descending" (click)="descending = !descending">
+                    Descending
+                </button>
+                <button mat-flat-button color="primary" class="m-1" *ngIf="!descending" (click)="descending = !descending">
+                   Ascending
                 </button>
 
             </div>
@@ -15,23 +19,34 @@
     <mat-sidenav-content class="sidenav-flex">
 
         <div class="col-md m-2" >
-            <button mat-button class="btn btn-success mx-1 float-right " (click)="list.toggle()">
-            Toggle List
+            <div class="row justify-content-start m-1">
+            <button mat-mini-fab color="secondary" class="" (click)="list.toggle()">
+                {{listOpenState ? '<<' : '>>'}}
             </button>
+            </div>
             <div class="row m-2">
-            <button *ngIf="selectedCharacters.length > 0" class="btn btn-primary mx-2" (click)="onSelectedSort(selectedProperty)">Sort Selected</button>
+            <button mat-flat-button color="primary" *ngIf="selectedCharacters.length > 0" class="px-3 mx-2" (click)="onSelectedSort(selectedProperty)">Sort Selected</button>
             </div>
             <div class="row"> 
                 <app-character-detail (characterChanged)="onChanged($event);"  [character]="character" *ngFor="let character of selectedCharacters" ></app-character-detail>
             </div>
         </div>
     </mat-sidenav-content>
-    <mat-sidenav #list opened class="m-3" mode="side" position="end">
+    <mat-sidenav [(opened)]="listOpenState"  #list opened class="mr-3" mode="side" position="">
+        <input class="input" mat-input class="my-1 mx-2 p-1" style="width:75%" type="text" placeholder="Search by name" [(ngModel)]="query">
+        <button mat-button class="float-right" *ngIf="query" matSuffix mat-icon-button aria-label="Clear" (click)="query=''">
+            <mat-icon>close</mat-icon>
+        </button>
         <div class="m-1">
-            <button class="col btn btn-primary" (click)="onSort(selectedProperty)">Sort</button>
+            <button mat-flat-button color="primary" class="col" (click)="onSort(selectedProperty)">Sort</button>
         </div>
-        <div (click)="onSelect(character);" class="p-2 h3 m-2 border border-primary" *ngFor="let character of characters">
-            {{characters.indexOf(character)+1}}. {{character.name}}
-        </div>
+        <mat-action-list>
+                <button mat-list-item (click)="onSelect(character);"
+                 class="h1"
+                 *ngFor="let character of characters | search:'name':query">
+                    {{characters.indexOf(character)+1}}. {{character.name}}
+                    <div *ngIf="selectedProperty !== 'name'" class="mr-0 ml-auto">{{character[selectedProperty]}}</div>
+                </button>
+        </mat-action-list>
     </mat-sidenav>
 </mat-sidenav-container>
