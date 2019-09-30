@@ -31,6 +31,7 @@ import { SearchPipe } from './search.pipe';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { RegisterComponent } from './register/register.component';
     SearchPipe,
     AboutComponent,
     RegisterComponent,
+    AlertComponent,
   ],
   imports: [
     NgbModule,

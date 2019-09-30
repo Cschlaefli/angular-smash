@@ -1,0 +1,1 @@
+rsync -rP ./dist/smash-app/ appserver:/var/www/smash-app/
