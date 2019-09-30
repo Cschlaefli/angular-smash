@@ -17,12 +17,12 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private formBuilder : FormBuilder,
+    private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-    private alertService : AlertService,
+    private alertService: AlertService,
   ) {
-    if (this.authenticationService.currentUserValue){
+    if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
     }
    }
@@ -30,13 +30,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['',[Validators.required, Validators.minLength(8)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
     }
-    
-    )
+
+    );
   }
 
-  get f() {return this.registerForm.controls;}
+  get f() {return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true;

@@ -18,7 +18,7 @@ export class CharacterListComponent implements OnInit {
   prettyNames;
   query: string;
   descending: boolean;
-  listOpenState : boolean;
+  listOpenState: boolean;
   constructor(
     private characterService: CharacterService,
   ) {
@@ -51,16 +51,16 @@ export class CharacterListComponent implements OnInit {
   }
 
   onSelect(character): void {
-    if (this.selectedCharacters.indexOf(character) < 0)
+    if (this.selectedCharacters.indexOf(character) < 0) {
     this.selectedCharacters.push(character);
+    }
   }
 
-  onChanged(character : Character): void{
+  onChanged(character: Character): void {
     this.selectedCharacters = this.selectedCharacters.filter(c => c !== character);
   }
 
-  onSelectedSort(property)
-  {
+  onSelectedSort(property) {
     const descending = this.descending;
     this.selectedCharacters.sort(function(a, b) {
 
@@ -90,7 +90,7 @@ export class CharacterListComponent implements OnInit {
     });
   }
   drop(event: CdkDragDrop<string[]>) {
-    console.log(event.previousIndex, event.currentIndex)
+    console.log(event.previousIndex, event.currentIndex);
     moveItemInArray(this.selectedCharacters, event.previousIndex, event.currentIndex);
   }
 

@@ -14,10 +14,10 @@ export class CharacterDetailComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  removeCharacter(character: Character){
+
+  removeCharacter(character: Character) {
     this.characterChanged.emit(character);
     this.character = null;
   }
-  
+
 }
