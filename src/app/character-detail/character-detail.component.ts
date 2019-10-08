@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import { CharacterService } from '../_services';
 import { Character } from '../_models';
 
 @Component({
@@ -8,11 +9,17 @@ import { Character } from '../_models';
 })
 export class CharacterDetailComponent implements OnInit {
 
-  @Input() character: Character;
+  @Input() characterID: number;
+  character : Character;
   @Output() characterChanged = new EventEmitter<Character>();
-  constructor() { }
+  constructor(
+    private characterService: CharacterService,
+  ) {
+   }
 
   ngOnInit() {
+    this.characterService.getById(this.characterID)
+      .subscribe(c => this.character = c);
   }
 
   removeCharacter(character: Character) {

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { Character } from '../_models';
 import { environment } from 'src/environments/environment.prod';
@@ -12,7 +13,7 @@ export class CharacterService {
         return this.http.get<Character[]>(`${environment.apiUrl}/character`);
     }
 
-    getById(id: number) {
-        return this.http.get(`${environment.apiUrl}/character/${id}`);
+    getById(id: number): Observable<Character> {
+        return this.http.get<Character>(`${environment.apiUrl}/character/${id}`);
     }
 }

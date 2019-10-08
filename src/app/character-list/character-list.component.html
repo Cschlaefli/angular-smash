@@ -28,7 +28,7 @@
             <button mat-flat-button color="primary" *ngIf="selectedCharacters.length > 0" class="px-3 mx-2" (click)="onSelectedSort(selectedProperty)">Sort Selected</button>
             </div>
             <div class="row"> 
-                <app-character-detail (characterChanged)="onChanged($event);"  [character]="character" *ngFor="let character of selectedCharacters" ></app-character-detail>
+                <app-character-detail (characterChanged)="onChanged($event);"  [characterID]="character.id" *ngFor="let character of selectedCharacters" ></app-character-detail>
             </div>
         </div>
     </mat-sidenav-content>

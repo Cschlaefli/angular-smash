@@ -1,4 +1,5 @@
 export class Character {
+    id: number;
     name: string;
     moves: Move[];
     weight: number;
