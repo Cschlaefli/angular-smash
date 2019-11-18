@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { CharacterProperties } from './character-properties.pipe';
 import { AppRoutingModule } from './app-routing.module';
@@ -49,6 +50,13 @@ import { AlertComponent } from './alert/alert.component';
     AlertComponent,
   ],
   imports: [
+    JwtModule.forRoot({
+      config: {
+        tokenGetter : function tokenGetter() { 
+          return localStorage.getItem("currentUser");},
+          whitelistedDomains: ['cade.schlaefli.dev']
+        }
+      }),
     NgbModule,
     MatSidenavModule,
     BrowserModule,
