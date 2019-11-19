@@ -24,7 +24,6 @@ export class CharacterDetailComponent implements OnInit {
 
   removeCharacter(character: Character) {
     this.characterChanged.emit(character);
-    this.character = null;
   }
 
 }
