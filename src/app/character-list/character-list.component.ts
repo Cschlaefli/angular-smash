@@ -57,7 +57,7 @@ export class CharacterListComponent implements OnInit {
   }
 
   onChanged(character: Character): void {
-    this.selectedCharacters = this.selectedCharacters.filter(c => c !== character);
+    this.selectedCharacters.splice(this.selectedCharacters.indexOf(character), 1);
   }
 
   onSelectedSort(property) {
