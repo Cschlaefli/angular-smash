@@ -1,4 +1,55 @@
-
+<mat-expansion-panel>
+        <mat-expansion-panel-header>
+                <mat-panel-title>
+                        {{move.name}}
+                </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-tab-group>
+                <mat-tab *ngFor="let version of move.versions" label="{{version.name}}">
+                        <div fxLayout="row wrap" fxLayoutGap="0rem" fxLayoutAlign="flex-start">
+                                        <div *ngIf="version.active">
+                                            Active : {{version.active}}
+                                        </div>
+                                        <div *ngIf="version.duration">
+                                            Duration : {{version.duration}}
+                                        </div>
+                                        <div *ngIf="version.baseDamage">
+                                            <label>Base damage: </label>
+                                            {{version.baseDamage}}
+                                        </div>
+                                        <div *ngIf="version.landingLag">
+                                            <label>Landing lag: </label>
+                                            {{version.landingLag}}
+                                        </div>
+                                        <div *ngIf="version.notes">
+                                            <label>Notes : </label>
+                                            {{version.notes}}
+                                        </div>
+                                        <div *ngIf="version.shieldLag">
+                                            <label>Shield Lag : </label>
+                                            {{version.shieldLag}}
+                                        </div>
+                                        <div *ngIf="version.shieldStun">
+                                            <label>Shield Stun : </label>
+                                            {{version.shieldStun}}
+                                        </div>
+                                        <div *ngIf="version.startup">
+                                            <label>Startup : </label>
+                                            {{version.startup}}
+                                        </div>
+                                        <div *ngIf="version.totalFrames">
+                                            <label>Total Frames : </label>
+                                            {{version.totalFrames}}
+                                        </div>
+                                        <div *ngIf="version.whichHitbox">
+                                            <label>Hitboxes: </label>
+                                            {{version.whichHitbox}}
+                                        </div>
+                        </div>
+                </mat-tab>
+        </mat-tab-group>
+</mat-expansion-panel>
+<!--
 <mat-card fxFlex="1 1 auto" class="m-2 p-3">
     <mat-card-title>
         {{move.name}}
@@ -43,3 +94,4 @@
         </div>
     </mat-card-content>
 </mat-card>
+-->

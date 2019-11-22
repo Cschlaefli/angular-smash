@@ -7,23 +7,52 @@ export class Character {
     runSpeed: number;
     initialDash: number;
     airSpeed: number;
-    totalAirAcceleration: number;
+    airAcceleration: number;
     fallSpeed: number;
     fastFall: number;
     shieldGrab: number;
     shieldDrop: number;
     jumpSquat: number;
+    crawl: boolean;
+    wallJump: boolean;
+    wallCling: boolean;
+    zair: boolean;
+    softLanding: number;
+    hardLanding: number;
+    initalDashFrames: number;
+    fullDashFrames: number;
+    shortHop: string;
+    fullHop: string;
+    shortHopFastFall: string;
+    fullHopFastFall: string;
+    walkSpeed: number;
+    acceleration: number;
+    friction: number;
+    fastFallSpeed: number;
+    airFriction: number;
+    fullHopInitialSpeed: number;
+    fullHopHeight: number;
+    shortHopHeight: number;
+    doubleJumpHeight: number;
 }
 export class Move {
+    id :number;
+    type : string;
+    characterId : number;
     name: string;
-    advantage?: string;
-    baseDamage?: string;
-    landingLag?: string;
-    notes?: string;
-    shieldLag?: string;
-    shieldStun?: string;
-    startup?: string;
-    totalFrames?: string;
-    type: string;
-    whichHitbox?: string;
+    nameJp: string;
+    specialName?: string;
+    versions : Version[];
+}
+export class Version {
+    name: string;
+    active: string;
+    duration: string;
+    baseDamage: number;
+    landingLag: string;
+    landingLagFrames: string;
+    intangible: string;
+    intangibleMaxPenalty: string;
+    durationMaxPenalty: string;
+    comment: string;
 }

@@ -37,21 +37,22 @@ export class MoveListComponent implements OnInit, OnChanges {
     this.grabs = new Array<Move>();
     this.dodges = new Array<Move>();
     for (const move of this.moves) {
-      if (move.type === 'groundattacks') {
+      if (move.type === 'ground') {
         this.grounds.push(move);
       }
-      if (move.type === 'aerialattacks') {
+      if (move.type === 'air') {
         this.aerials.push(move);
       }
-      if (move.type === 'specialattacks') {
+      if (move.type === 'special') {
         this.specials.push(move);
       }
-      if (move.type === 'grabs') {
+      if (move.type === 'grab') {
         this.grabs.push(move);
       }
-      if (move.type === 'dodges') {
+      if (move.type === 'dodge') {
         this.dodges.push(move);
       }
+      //add throws
     }
   }
 

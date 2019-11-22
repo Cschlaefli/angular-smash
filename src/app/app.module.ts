@@ -50,13 +50,6 @@ import { AlertComponent } from './alert/alert.component';
     AlertComponent,
   ],
   imports: [
-    JwtModule.forRoot({
-      config: {
-        tokenGetter : function tokenGetter() { 
-          return localStorage.getItem("currentUser");},
-          whitelistedDomains: ['cade.schlaefli.dev']
-        }
-      }),
     NgbModule,
     MatSidenavModule,
     BrowserModule,
