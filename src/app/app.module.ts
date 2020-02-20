@@ -20,7 +20,6 @@ import { MatGridListModule } from "@angular/material/grid-list";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatListModule } from "@angular/material/list";
-import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatCardModule } from "@angular/material/card";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -33,6 +32,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { AboutComponent } from "./about/about.component";
 import { RegisterComponent } from "./register/register.component";
 import { AlertComponent } from "./alert/alert.component";
+import { VersionDetailComponent } from "./version-detail/version-detail.component";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AlertComponent } from "./alert/alert.component";
     SearchPipe,
     AboutComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    VersionDetailComponent
   ],
   imports: [
     JwtModule,
@@ -63,7 +65,6 @@ import { AlertComponent } from "./alert/alert.component";
     MatTabsModule,
     MatExpansionModule,
     MatListModule,
-    FlexLayoutModule,
     MatCardModule,
     DragDropModule,
     MatToolbarModule,
@@ -71,7 +72,8 @@ import { AlertComponent } from "./alert/alert.component";
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

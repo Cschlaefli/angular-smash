@@ -1,15 +1,20 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges } from '@angular/core';
-import { Move } from '../_models';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+  OnChanges
+} from "@angular/core";
+import { Move } from "../_models";
 
 @Component({
-  selector: 'app-move-list',
-  templateUrl: './move-list.component.html',
-  styleUrls: ['./move-list.component.scss'],
-  changeDetection : ChangeDetectionStrategy.OnPush
+  selector: "app-move-list",
+  templateUrl: "./move-list.component.html",
+  styleUrls: ["./move-list.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MoveListComponent implements OnInit, OnChanges {
-
-  constructor() { }
+  constructor() {}
 
   @Input() moves: Move[];
   grounds: Move[];
@@ -37,19 +42,19 @@ export class MoveListComponent implements OnInit, OnChanges {
     this.grabs = new Array<Move>();
     this.dodges = new Array<Move>();
     for (const move of this.moves) {
-      if (move.type === 'groundattacks') {
+      if (move.type === "ground") {
         this.grounds.push(move);
       }
-      if (move.type === 'aerialattacks') {
+      if (move.type === "air") {
         this.aerials.push(move);
       }
-      if (move.type === 'specialattacks') {
+      if (move.type === "special") {
         this.specials.push(move);
       }
-      if (move.type === 'grabs') {
+      if (move.type === "throw") {
         this.grabs.push(move);
       }
-      if (move.type === 'dodges') {
+      if (move.type === "dodge") {
         this.dodges.push(move);
       }
     }
@@ -62,22 +67,21 @@ export class MoveListComponent implements OnInit, OnChanges {
     this.grabs = new Array<Move>();
     this.dodges = new Array<Move>();
     for (const move of this.moves) {
-      if (move.type === 'groundattacks') {
+      if (move.type === "ground") {
         this.grounds.push(move);
       }
-      if (move.type === 'aerialattacks') {
+      if (move.type === "air") {
         this.aerials.push(move);
       }
-      if (move.type === 'specialattacks') {
+      if (move.type === "special") {
         this.specials.push(move);
       }
-      if (move.type === 'grabs') {
+      if (move.type === "throw") {
         this.grabs.push(move);
       }
-      if (move.type === 'dodges') {
+      if (move.type === "dodge") {
         this.dodges.push(move);
       }
     }
   }
-
 }

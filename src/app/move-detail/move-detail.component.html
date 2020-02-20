@@ -1,45 +1,18 @@
-
 <mat-card fxFlex="1 1 auto" class="m-2 p-3">
-    <mat-card-title>
-        {{move.name}}
-    </mat-card-title>
-    <mat-card-subtitle>
-        <div *ngIf="move.advantage">
-            Advantage : {{move.advantage}}
-        </div>
-    </mat-card-subtitle>
-   <mat-card-content class="">
-        <div *ngIf="move.baseDamage">
-            <label>Base damage: </label>
-            {{move.baseDamage}}
-        </div>
-        <div *ngIf="move.landingLag">
-            <label>Landing lag: </label>
-            {{move.landingLag}}
-        </div>
-        <div *ngIf="move.notes">
-            <label>Notes : </label>
-            {{move.notes}}
-        </div>
-        <div *ngIf="move.shieldLag">
-            <label>Shield Lag : </label>
-            {{move.shieldLag}}
-        </div>
-        <div *ngIf="move.shieldStun">
-            <label>Shield Stun : </label>
-            {{move.shieldStun}}
-        </div>
-        <div *ngIf="move.startup">
-            <label>Startup : </label>
-            {{move.startup}}
-        </div>
-        <div *ngIf="move.totalFrames">
-            <label>Total Frames : </label>
-            {{move.totalFrames}}
-        </div>
-        <div *ngIf="move.whichHitbox">
-            <label>Hitboxes: </label>
-            {{move.whichHitbox}}
-        </div>
-    </mat-card-content>
+  <mat-card-title>
+    {{ move.name }}
+  </mat-card-title>
+  <mat-card-subtitle> </mat-card-subtitle>
+  <mat-card-content class="">
+    <div *ngFor="let version of move.versions">
+      <mat-card fxFlex="1 1 auto" class="m-2 p-3">
+        <mat-card-title>
+          {{ version.name }}
+        </mat-card-title>
+        <mat-card-content>
+          <app-version-detail [version]="version"></app-version-detail>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card-content>
 </mat-card>
